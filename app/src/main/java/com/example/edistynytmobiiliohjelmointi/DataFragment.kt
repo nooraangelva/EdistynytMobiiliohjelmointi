@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.edistynytmobiiliohjelmointi.databinding.DataFragmentBinding
@@ -40,20 +41,22 @@ class DataFragment : Fragment() {
     ): View {
 
         _binding = DataFragmentBinding.inflate(inflater, container, false)
+
         val root: View = binding.root
 
         linearLayoutManager = LinearLayoutManager(context)
-        dataRecyclerView.layoutManager = linearLayoutManager
+        binding.dataRecyclerView.layoutManager = linearLayoutManager
 
         viewModelFactory = DataViewModelFactory(requireContext())
-        //viewModel = ViewModelProvider(this, viewModelFactory)[DataViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[DataViewModel::class.java]
+        _binding.viewModel = viewModel
 
         // Observers
-                viewModel.adapter.observe(viewLifecycleOwner, Observer { adapter ->
+        viewModel.adapter.observe(viewLifecycleOwner, Observer { adapter ->
 
-                    binding.dataRecyclerView.adapter = adapter
+            binding.dataRecyclerView.adapter = adapter
 
-                })
+        })
 
         return root
     }

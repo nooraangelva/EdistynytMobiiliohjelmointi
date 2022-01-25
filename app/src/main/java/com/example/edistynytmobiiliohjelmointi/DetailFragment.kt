@@ -45,7 +45,7 @@ class DetailFragment : Fragment() {
         dataRecyclerView.layoutManager = linearLayoutManager
 
         viewModelFactory = DetailViewModelFactory(requireContext(), args.userId)
-        //viewModel = ViewModelProvider(this, viewModelFactory)[DataViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[DetailViewModel::class.java]
 
 
         return root
