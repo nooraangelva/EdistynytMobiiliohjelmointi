@@ -54,24 +54,21 @@ class DataViewModel(val context: Context){
                         val item : TodoItem = gson.fromJson(response, TodoItem::class.java)
                         val rows : List<TodoItem> = listOf(item)
 
-                        // Putting the data to recyclerview
-                        _adapter.value = RecyclerAdapter(rows)
+                        Log.d("ADVTECH", rows.toString())
 
                     }
                     is JSONArray -> { //it is a JsonArray
                         val rows: List<TodoItem> =
                             gson.fromJson(response, Array<TodoItem>::class.java).toList()
 
-                        // Putting the data to recyclerview
-                        _adapter.value = RecyclerAdapter(rows)
+                        Log.d("ADVTECH", rows.toString())
 
                     }
                     else -> { //handle the odd scenario
                         val item : TodoItem = gson.fromJson(response, TodoItem::class.java)
                         val rows : List<TodoItem> = listOf(item)
 
-                        // Putting the data to recyclerview
-                        _adapter.value = RecyclerAdapter(rows)
+                        Log.d("ADVTECH", rows.toString())
 
                     }
                 }

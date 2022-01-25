@@ -20,7 +20,6 @@ class DetailFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    private lateinit var adapter: RecyclerAdapter
 
     // get fragment parameters from previous fragment
     private val args: DetailFragmentArgs by navArgs()
