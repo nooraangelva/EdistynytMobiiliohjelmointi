@@ -45,6 +45,7 @@ class DetailFragment : Fragment() {
 
         viewModelFactory = DetailViewModelFactory(requireContext(), args.userId)
         viewModel = ViewModelProvider(this, viewModelFactory)[DetailViewModel::class.java]
+        _binding.viewModel = viewModel
 
 
         return root
